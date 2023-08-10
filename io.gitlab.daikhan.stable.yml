@@ -16,8 +16,6 @@ finish-args:
   - --socket=wayland
   - --socket=fallback-x11
   - --socket=pulseaudio
-  - --filesystem=host:ro
-  - --filesystem=xdg-run/gvfs:ro
 
 cleanup:
   - /include
