@@ -75,6 +75,6 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/daikhan/daikhan.git
-        commit: 67b4a85a4b83e5d07ca168f84afd91536230cdf9
+        commit: 8e191a5f683617ffc07d93fbb8fcb1c3824b684d
     config-opts:
       - -Dprofile=stable
