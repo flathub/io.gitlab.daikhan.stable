@@ -39,6 +39,16 @@ modules:
     cleanup:
       - "*"
 
+  - name: xxHash
+    buildsystem: simple
+    sources:
+      - type: archive
+        url: https://github.com/Cyan4973/xxHash/archive/refs/tags/v0.8.2.tar.gz
+        sha256: baee0c6afd4f03165de7a4e67988d16f0f2b257b51d0e3cb91909302a26a79c4
+    build-commands:
+      - make PREFIX=/app
+      - make PREFIX=/app install
+
   - name: cargo-c
     buildsystem: simple
     sources:
@@ -110,6 +120,6 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/daikhan/daikhan.git
-        commit: 8b2b8c3bfffaa9acc5e9f4d5fc540c305ff85510
+        commit: 34b5a2056fc55ee0766728b1dafd45aa575cf469
     config-opts:
       - -Dprofile=stable
