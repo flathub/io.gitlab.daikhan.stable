@@ -59,8 +59,8 @@ modules:
     sources:
       - gst-plugins-rs-sources.json
       - type: archive
-        url: https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/0.10.11/gst-plugins-rs-0.10.11.tar.bz2
-        sha256: 150d5d5dbb78d8a0f46aa9f4fb25edbbc54a9599d583bf40d1f3f46fe1f13a51
+        url: https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/16d58caf2e0d99ea499ff5e9164e3a118835b400/gst-plugins-rs-16d58caf2e0d99ea499ff5e9164e3a118835b400.tar.bz2
+        sha256: 59f2144c920ae9650be7d66cd8623a2b46044be0ca823e8c4494bfbe6804798a
     build-options:
       env:
         CARGO_HOME: /run/build/gst-plugins-rs/cargo
