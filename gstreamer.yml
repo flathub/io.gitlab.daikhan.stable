@@ -1,0 +1,192 @@
+name: gstreamer
+buildsystem: meson
+builddir: true
+config-opts:
+  - --buildtype=release
+  - --wrap-mode=nodownload
+
+  - -Dbad=enabled
+  - -Ddevtools=disabled
+  - -Ddoc=disabled
+  - -Dexamples=disabled
+  - -Dges=disabled
+  - -Dgpl=enabled
+  - -Dgst-examples=disabled
+  - -Dgtk_doc=disabled
+  - -Dlibav=enabled
+  - -Dpython=disabled
+  - -Dqt5=disabled
+  - -Drtsp_server=disabled
+  - -Dtests=disabled
+  - -Dtools=disabled
+  - -Dugly=enabled
+  - -Dvaapi=enabled
+
+  - -Dgstreamer:check=disabled
+
+  - -Dgst-plugins-base:ogg=enabled
+  - -Dgst-plugins-base:opus=enabled
+  - -Dgst-plugins-base:vorbis=enabled
+
+  - -Dgst-plugins-good:bz2=enabled
+  - -Dgst-plugins-good:dv=enabled
+  - -Dgst-plugins-good:flac=enabled
+  - -Dgst-plugins-good:gtk3=disabled
+  - -Dgst-plugins-good:mpg123=enabled
+  - -Dgst-plugins-good:pulse=enabled
+  - -Dgst-plugins-good:speex=enabled
+  - -Dgst-plugins-good:vpx=enabled
+  - -Dgst-plugins-good:wavpack=enabled
+  - -Dgst-plugins-good:qt6=disabled
+
+  - -Dgst-plugins-ugly:a52dec=enabled
+  - -Dgst-plugins-ugly:amrnb=enabled
+  - -Dgst-plugins-ugly:amrwbdec=enabled
+  - -Dgst-plugins-ugly:mpeg2dec=enabled
+
+  - -Dgst-plugins-bad:aom=enabled
+  - -Dgst-plugins-bad:assrender=enabled
+  - -Dgst-plugins-bad:bz2=enabled
+  - -Dgst-plugins-bad:closedcaption=enabled
+  - -Dgst-plugins-bad:dash=enabled
+  - -Dgst-plugins-bad:dtls=enabled
+  - -Dgst-plugins-bad:dts=enabled
+  - -Dgst-plugins-bad:faad=enabled
+  - -Dgst-plugins-bad:fluidsynth=enabled
+  - -Dgst-plugins-bad:gl=enabled
+  - -Dgst-plugins-bad:kate=enabled
+  - -Dgst-plugins-bad:ldac=enabled
+  - -Dgst-plugins-bad:libde265=enabled
+  - -Dgst-plugins-bad:nvcodec=enabled
+  - -Dgst-plugins-bad:openh264=enabled
+  - -Dgst-plugins-bad:openjpeg=enabled
+  - -Dgst-plugins-bad:opus=enabled
+  - -Dgst-plugins-bad:ttml=enabled
+  - -Dgst-plugins-bad:va=enabled
+
+  - -Dorc:benchmarks=disabled
+  - -Dorc:orc-test=disabled
+
+sources:
+  - type: archive
+    url: https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.22.5/gstreamer-1.22.5.tar.bz2
+    sha256: 4142d4b211d6515159856f5a25ef8ecc70268d2a5bc112bc43930a97e8a0ccb3
+
+  - type: archive
+    url: https://gitlab.freedesktop.org/gstreamer/meson-ports/gl-headers/-/archive/5c8c7c0d3ca1f0b783272dac0b95e09414e49bc8/gl-headers-5c8c7c0d3ca1f0b783272dac0b95e09414e49bc8.tar.bz2
+    sha256: 46b771874c9e14c2a94575eaf579877f34060950f7090e50b2b91f22399700a3
+    dest: subprojects/gl-headers
+
+  - type: archive
+    url: https://gitlab.freedesktop.org/gstreamer/orc/-/archive/0.4.34/orc-0.4.34.tar.bz2
+    sha256: 70d81ded7a17439c677decc037f8bbf1982cbb5bd8c7e468c4761595b8bc79c3
+    dest: subprojects/orc
+
+  - type: archive
+    url: https://gitlab.freedesktop.org/gstreamer/meson-ports/libdv/-/archive/4a28ebb4/libdv-4a28ebb4.tar.bz2
+    sha256: 23f608ae1db094ac4a8af8ab61b2c20e33ca5518c1e7c2b82d4a4cf8b698ff8f
+    dest: subprojects/dv
+
+modules:
+  - name: faad2
+    buildsystem: autotools
+    sources:
+      - type: archive
+        url: https://github.com/knik0/faad2/archive/2.10.1.tar.gz
+        sha512: 8df69278350c68dd770c4bc482e42bc95eb04cd784eeea3f3fc58d615833c8b07dc3c72029bb7e5bfed612b7c1b8daefc9cb57be9789befb587120ef115e55b3
+
+  - name: libkate
+    buildsystem: autotools
+    sources:
+      - type: archive
+        url: https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/libkate/libkate-0.4.1.tar.gz
+        sha512: 2635237753abc0f6c43fc07bd0ecc57c2f3c893efa6c62ad08de9191045612477302ed45acd61cdfea7447efd654ebbe0ed2d6a2cbf867eb834581d7ee43377b
+
+      - type: file
+        path: autotools/config.guess
+        dest: misc/autotools/
+
+      - type: file
+        path: autotools/config.sub
+        dest: misc/autotools/
+
+  - name: libde265
+    buildsystem: autotools
+    sources:
+      - type: archive
+        url: https://github.com/strukturag/libde265/releases/download/v1.0.12/libde265-1.0.12.tar.gz
+        sha256: 62185ea2182e68cf68bba20cc6eb4c287407b509cf0a827d7ddb75614db77b5c
+    config-opts:
+      - --disable-dec265
+      - --disable-sherlock265
+
+  - name: mjpegtools
+    buildsystem: autotools
+    sources:
+      - type: archive
+        url: https://downloads.sourceforge.net/mjpeg/mjpegtools-2.2.1.tar.gz
+        sha256: b180536d7d9960b05e0023a197b00dcb100929a49aab71d19d55f4a1b210f49a
+
+  - name: soundtouch
+    buildsystem: autotools
+    sources:
+      - type: archive
+        url: https://codeberg.org/soundtouch/soundtouch/archive/2.3.2.tar.gz
+        sha256: ed714f84a3e748de87b24f385ec69d3bdc51ca47b7f4710d2048b84b2761e7ff
+
+  - name: a52dec
+    buildsystem: autotools
+    sources:
+      - type: archive
+        url: https://distfiles.adelielinux.org/source/a52dec/a52dec-0.8.0.tar.gz
+        sha256: 03c181ce9c3fe0d2f5130de18dab9bd8bc63c354071515aa56983c74a9cffcc9
+
+  - name: opencore-amr
+    buildsystem: autotools
+    sources:
+      - type: archive
+        url: https://downloads.sourceforge.net/sourceforge/opencore-amr/opencore-amr-0.1.6.tar.gz
+        sha512: 8955169954b09d2d5e2190888602c75771b72455290db131ab7f40b587df32ea6a60f205126b09193b90064d0fd82b7d678032e2b4c684189788e175b83d0aa7
+
+  - name: libmpeg2
+    buildsystem: autotools
+    sources:
+      - type: archive
+        url: https://libmpeg2.sourceforge.io/files/libmpeg2-0.5.1.tar.gz
+        sha256: dee22e893cb5fc2b2b6ebd60b88478ab8556cb3b93f9a0d7ce8f3b61851871d4
+
+      - type: file
+        path: autotools/config.guess
+        dest: .auto/
+
+      - type: file
+        path: autotools/config.sub
+        dest: .auto/
+
+  - name: libass
+    buildsystem: autotools
+    sources:
+      - type: archive
+        url: https://github.com/libass/libass/releases/download/0.17.1/libass-0.17.1.tar.xz
+        sha256: f0da0bbfba476c16ae3e1cfd862256d30915911f7abaa1b16ce62ee653192784
+
+  - name: libdca
+    buildsystem: autotools
+    sources:
+      - type: archive
+        url: https://download.videolan.org/pub/videolan/libdca/0.0.6/libdca-0.0.6.tar.bz2
+        sha256: 98f98a9aa000a26b927c6facd15d18dcf664238adfc5db24f533c5932cdb1f40
+
+  - name: fluidsynth
+    buildsystem: cmake
+    sources:
+      - type: archive
+        url: https://github.com/FluidSynth/fluidsynth/archive/refs/tags/v2.3.3.tar.gz
+        sha256: 321f7d3f72206b2522f30a1cb8ad1936fd4533ffc4d29dd335b1953c9fb371e6
+
+  - name: ldacBT
+    buildsystem: cmake
+    sources:
+      - type: archive
+        url: https://github.com/EHfive/ldacBT/releases/download/v2.0.2.3/ldacBT-2.0.2.3.tar.gz
+        sha256: 4bd8eece78bb5c1361fab95743e7100506e2408a25c4a592a0f8d349746dc5b4
