@@ -190,3 +190,10 @@ modules:
       - type: archive
         url: https://github.com/EHfive/ldacBT/releases/download/v2.0.2.3/ldacBT-2.0.2.3.tar.gz
         sha256: 4bd8eece78bb5c1361fab95743e7100506e2408a25c4a592a0f8d349746dc5b4
+
+  - name: ffmpeg
+    buildsystem: autotools
+    sources:
+      - type: archive
+        url: https://ffmpeg.org/releases/ffmpeg-6.0.tar.bz2
+        sha256: 47d062731c9f66a78380e35a19aac77cebceccd1c7cc309b9c82343ffc430c3d
