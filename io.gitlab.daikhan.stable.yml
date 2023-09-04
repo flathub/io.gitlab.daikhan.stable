@@ -66,18 +66,19 @@ modules:
 
   - gstreamer.yml
 
-  - name: gst-plugins-rs
+  - name: gst-plugin-gtk4
     buildsystem: simple
     sources:
-      - gst-plugins-rs-sources.json
+      - gst-plugin-gtk4-sources.json
       - type: archive
-        url: https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/16d58caf2e0d99ea499ff5e9164e3a118835b400/gst-plugins-rs-16d58caf2e0d99ea499ff5e9164e3a118835b400.tar.bz2
-        sha256: 59f2144c920ae9650be7d66cd8623a2b46044be0ca823e8c4494bfbe6804798a
+        url: https://crates.io/api/v1/crates/gst-plugin-gtk4/0.11.0/download
+        sha256: c3ee0132150ee059c35642b51c5d663eadb9fa4d21f83a56dd584b03c1c45ffd
+        dest-filename: gst-plugin-gtk4-0.11.0.tar.gz
     build-options:
       env:
-        CARGO_HOME: /run/build/gst-plugins-rs/cargo
+        CARGO_HOME: /run/build/gst-plugin-gtk4/cargo
     build-commands:
-      - cargo cinstall -p gst-plugin-gtk4 --offline --release --features=wayland,x11glx,x11egl --library-type=cdylib --prefix=/app
+      - cargo cinstall --offline --release --features=wayland,x11glx,x11egl --library-type=cdylib --prefix=/app
 
   - name: daikhan
     builddir: true
