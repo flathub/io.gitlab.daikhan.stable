@@ -194,7 +194,6 @@ modules:
   - name: ffmpeg
     buildsystem: autotools
     sources:
-      - type: git
-        url: https://git.ffmpeg.org/ffmpeg.git
-        branch: release/6.0
-        commit: 2baff271a27957114ce798c54b6dc9a4851d316f
+      - type: archive
+        url: https://ffmpeg.org/releases/ffmpeg-6.1.tar.bz2
+        sha256: eb7da3de7dd3ce48a9946ab447a7346bd11a3a85e6efb8f2c2ce637e7f547611
