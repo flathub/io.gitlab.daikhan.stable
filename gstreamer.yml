@@ -63,7 +63,8 @@ config-opts:
   - -Dgst-plugins-bad:opus=enabled
   - -Dgst-plugins-bad:ttml=enabled
   - -Dgst-plugins-bad:va=enabled
-
+  - -Dgst-plugins-bad:qsv=enabled
+  
   - -Dorc:benchmarks=disabled
   - -Dorc:orc-test=disabled
 
