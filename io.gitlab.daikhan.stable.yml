@@ -64,7 +64,7 @@ modules:
     cleanup:
       - "*"
       
-    - name: intel-onevpl-runtime
+  - name: intel-onevpl-runtime
     only-arches:
       - x86_64
     buildsystem: cmake-ninja
@@ -79,13 +79,7 @@ modules:
         url: >-
           https://github.com/oneapi-src/oneVPL-intel-gpu/archive/intel-onevpl-24.1.0.tar.gz
         sha256: f1c763224e289f022a22fc74671cc971d1f4d2bb6eab0ea7808d0f053c399b97
-        x-checker-data:
-          type: anitya
-          project-id: 368736
-          stable-only: true
-          url-template: >-
-            https://github.com/oneapi-src/oneVPL-intel-gpu/archive/intel-onevpl-$version.tar.gz
-            
+  
   - name: oneapi-libvpl
     skip-arches:
       - aarch64
