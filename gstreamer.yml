@@ -191,7 +191,7 @@ modules:
     sources:
       - type: archive
         url: https://github.com/oneapi-src/oneVPL-intel-gpu/archive/intel-onevpl-24.1.5.tar.gz
-        sha256: e006d59399dbd0c3b3ecd91610822d655e9303b25a385a9a3ac94a42bf34b284
+        sha256: 0cb58a2a944ade72a85340d69352df1bd76b0afce09ca4faac69cc339a5a8732
 
   - name: intel-libvpl
     skip-arches:
