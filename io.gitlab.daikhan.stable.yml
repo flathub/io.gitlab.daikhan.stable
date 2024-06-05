@@ -5,6 +5,13 @@ runtime-version: "46"
 sdk: org.gnome.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
+add-extensions:
+  -  org.freedesktop.Platform.ffmpeg-full:
+      version: '23.08'
+      directory: lib/ffmpeg
+      add-ld-path: "."
+      no-autodownload: false
+      autodelete: false
 
 build-options:
   append-path: /usr/lib/sdk/rust-stable/bin
@@ -16,15 +23,28 @@ finish-args:
   - --socket=wayland
   - --socket=fallback-x11
   - --socket=pulseaudio
+  - --env=GST_PLUGIN_SYSTEM_PATH=/app/lib/gstreamer-1.0
 
 cleanup:
+  - /etc
   - /include
+  - /libexec
+  - /lib/cmake
+  - /lib/girepository-1.0
+  - /lib/gstreamer-1.0/include
   - /lib/pkgconfig
   - /man
+  - /share/aclocal
   - /share/doc
+  - /share/ffmpeg/examples
+  - /share/gir-1.0
+  - /share/gstreamer-1.0
+  - /share/gst-plugins-base
   - /share/gtk-doc
+  - /share/info
   - /share/man
   - /share/pkgconfig
+  - /share/vpl/examples
   - '*.la'
   - '*.a'
 
