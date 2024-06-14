@@ -207,10 +207,3 @@ modules:
       - type: archive
         url: https://github.com/intel/libvpl/archive/refs/tags/v2.10.2.tar.gz
         sha256: ad956ea7ecf14614325f59dfb44cc5ba08e2fcac373342d61c7db152ac651253
-
-  - name: ffmpeg
-    buildsystem: autotools
-    sources:
-      - type: archive
-        url: https://ffmpeg.org/releases/ffmpeg-6.1.1.tar.bz2
-        sha256: 5e3133939a61ef64ac9b47ffd29a5ea6e337a4023ef0ad972094b4da844e3a20
