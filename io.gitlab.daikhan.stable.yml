@@ -7,7 +7,6 @@ sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
 add-extensions:
   org.freedesktop.Platform.ffmpeg-full:
-    version: '24.08'
     directory: lib/ffmpeg
     add-ld-path: "."
     no-autodownload: false
