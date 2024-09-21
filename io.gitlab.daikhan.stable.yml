@@ -23,6 +23,7 @@ finish-args:
   - --socket=wayland
   - --socket=fallback-x11
   - --socket=pulseaudio
+  - --own-name=org.mpris.MediaPlayer2.daikhan
   - --env=GST_PLUGIN_SYSTEM_PATH=/app/lib/gstreamer-1.0
 
 cleanup:
@@ -107,7 +108,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/daikhan/daikhan.git
-        commit: 22e037a305cf830d9f7ef6de69a408b76f8d244e
+        commit: 4bc33b4f230c50fadfe8503a4771594a56706352
     config-opts:
       - -Dprofile=stable
     build-commands:
