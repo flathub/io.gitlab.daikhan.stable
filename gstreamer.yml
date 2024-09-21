@@ -71,8 +71,8 @@ build-options:
 
 sources:
   - type: archive
-    url: https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.24.1/gstreamer-1.24.1.tar.bz2
-    sha256: 8bb3f93e3f4bdbff27266aed982a96062b0dcb5d5005e8dd2cdc1fc054ba5850
+    url: https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.24.8/gstreamer-1.24.8.tar.bz2
+    sha256: 41fd1325acebb69cec23a46c6c2fe68b4bcf9b25c392b94ffadb3b222bb2422b
 
   - type: archive
     url: https://gitlab.freedesktop.org/gstreamer/meson-ports/gl-headers/-/archive/5c8c7c0d3ca1f0b783272dac0b95e09414e49bc8/gl-headers-5c8c7c0d3ca1f0b783272dac0b95e09414e49bc8.tar.bz2
@@ -80,8 +80,8 @@ sources:
     dest: subprojects/gl-headers
 
   - type: archive
-    url: https://gitlab.freedesktop.org/gstreamer/orc/-/archive/0.4.38/orc-0.4.38.tar.bz2
-    sha256: 947e26f97aaad0478b3cfc38c8bd684748b492e759283b216f521d40b9710d52
+    url: https://gitlab.freedesktop.org/gstreamer/orc/-/archive/0.4.40/orc-0.4.40.tar.bz2
+    sha256: cee70f3c101ecd78ed3e400c32d62d2202dadb1cb13f0e7f32ade4b8d6f740e9
     dest: subprojects/orc
 
   - type: archive
@@ -118,8 +118,8 @@ modules:
     buildsystem: autotools
     sources:
       - type: archive
-        url: https://codeberg.org/soundtouch/soundtouch/archive/2.3.2.tar.gz
-        sha256: ed714f84a3e748de87b24f385ec69d3bdc51ca47b7f4710d2048b84b2761e7ff
+        url: https://codeberg.org/soundtouch/soundtouch/archive/2.3.3.tar.gz
+        sha256: 43b23dfac2f64a3aff55d64be096ffc7b73842c3f5665caff44975633a975a99
 
   - name: a52dec
     buildsystem: autotools
@@ -154,8 +154,8 @@ modules:
     buildsystem: autotools
     sources:
       - type: archive
-        url: https://github.com/libass/libass/releases/download/0.17.1/libass-0.17.1.tar.xz
-        sha256: f0da0bbfba476c16ae3e1cfd862256d30915911f7abaa1b16ce62ee653192784
+        url: https://github.com/libass/libass/releases/download/0.17.3/libass-0.17.3.tar.xz
+        sha256: eae425da50f0015c21f7b3a9c7262a910f0218af469e22e2931462fed3c50959
 
   - name: libdca
     buildsystem: autotools
@@ -168,8 +168,8 @@ modules:
     buildsystem: cmake
     sources:
       - type: archive
-        url: https://github.com/FluidSynth/fluidsynth/archive/refs/tags/v2.3.4.tar.gz
-        sha256: 1529ef5bc3b9ef3adc2a7964505912f7305103e269e50cc0316f500b22053ac9
+        url: https://github.com/FluidSynth/fluidsynth/archive/refs/tags/v2.3.6.tar.gz
+        sha256: 3340d73286b28fe6e5150fbe12648d4640e86c64c228878b572773bd08cac531
 
   - name: ldacBT
     buildsystem: cmake
@@ -190,8 +190,8 @@ modules:
       - '-DBUILD_TOOLS=OFF'
     sources:
       - type: archive
-        url: https://github.com/oneapi-src/oneVPL-intel-gpu/archive/intel-onevpl-24.1.5.tar.gz
-        sha256: 0cb58a2a944ade72a85340d69352df1bd76b0afce09ca4faac69cc339a5a8732
+        url: https://github.com/intel/vpl-gpu-rt/archive/refs/tags/intel-onevpl-24.2.5.tar.gz
+        sha256: ccb76812642d84d4d8a56d28df60ef6d450cbb09969a59ee6c4a819098617b5d
 
   - name: intel-libvpl
     skip-arches:
@@ -205,5 +205,5 @@ modules:
       - '-DBUILD_TOOLS=OFF'
     sources:
       - type: archive
-        url: https://github.com/intel/libvpl/archive/refs/tags/v2.10.2.tar.gz
-        sha256: ad956ea7ecf14614325f59dfb44cc5ba08e2fcac373342d61c7db152ac651253
+        url: https://github.com/intel/libvpl/archive/refs/tags/v2.13.0.tar.gz
+        sha256: 1c740e2b58f7853f56b618bdb7d4a7e5d37f8c1a9b30105a0b79ba80873e1cbd

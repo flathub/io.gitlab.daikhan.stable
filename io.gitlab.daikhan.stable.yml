@@ -1,13 +1,13 @@
 app-id: io.gitlab.daikhan.stable
 command: daikhan
 runtime: org.gnome.Platform
-runtime-version: "46"
+runtime-version: "47"
 sdk: org.gnome.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
 add-extensions:
   -  org.freedesktop.Platform.ffmpeg-full:
-      version: '23.08'
+      version: '24.08'
       directory: lib/ffmpeg
       add-ld-path: "."
       no-autodownload: false
@@ -54,8 +54,8 @@ modules:
     buildsystem: meson
     sources:
       - type: archive
-        url: https://gitlab.gnome.org/jwestman/blueprint-compiler/-/archive/v0.12.0/blueprint-compiler-v0.12.0.tar.bz2
-        sha256: 0f762e8a0dfef9aa46b4bddf8ed4bbc09b5d2fa2baff5dec109ccc513c6e9e00
+        url: https://gitlab.gnome.org/jwestman/blueprint-compiler/-/archive/v0.14.0/blueprint-compiler-v0.14.0.tar.bz2
+        sha256: 2be7682be51b6cbd64ab6775ee6d5806bf18c599d503056eaa4e58f1705be22b
     cleanup:
       - "*"
 
@@ -74,8 +74,9 @@ modules:
     sources:
       - cargo-c-sources.json
       - type: archive
-        url: https://github.com/lu-zero/cargo-c/archive/refs/tags/v0.9.31.tar.gz
-        sha256: 4a04db8fb17a55db403bc59572f05475a477fece7ab08cfb2de970e188b80b83
+        url: https://crates.io/api/v1/crates/cargo-c/0.10.4+cargo-0.82.0/download
+        sha256: 516e8c3f59af4f1c2571abf539fe26384d4ee12b3bc91dc32c00a0c6efb1a8a2
+        dest-filename: cargo-c-0.10.4+cargo-0.82.0.tar.gz
     build-options:
       env:
         CARGO_HOME: /run/build/cargo-c/cargo
@@ -91,14 +92,14 @@ modules:
     sources:
       - gst-plugin-gtk4-sources.json
       - type: archive
-        url: https://crates.io/api/v1/crates/gst-plugin-gtk4/0.12.3/download
-        sha256: 83c12132d3619f85db54f6034b4e3872577886657b07e055c521baeb2d5f6733
-        dest-filename: gst-plugin-gtk4-0.12.3.tar.gz
+        url: https://crates.io/api/v1/crates/gst-plugin-gtk4/0.13.1/download
+        sha256: 44b3fe6a92ebf2e62366d9f2d8633cc634187bb7c40fe4db05edfb809e928197
+        dest-filename: gst-plugin-gtk4-0.13.1.tar.gz
     build-options:
       env:
         CARGO_HOME: /run/build/gst-plugin-gtk4/cargo
     build-commands:
-      - cargo cinstall --frozen --release --all-features --library-type=cdylib --prefix=/app
+      - cargo cinstall --frozen --release --all-features --library-type=cdylib --prefix=/app --libdir=/app/lib
 
   - name: daikhan
     builddir: true
