@@ -70,14 +70,10 @@ modules:
 
   - name: daikhan
     builddir: true
-    buildsystem: simple
+    buildsystem: meson
     sources:
       - type: git
         url: https://gitlab.com/daikhan/daikhan.git
         commit: 4bc33b4f230c50fadfe8503a4771594a56706352
     config-opts:
       - -Dprofile=stable
-    build-commands:
-      - meson setup build -Dprofile=stable --prefix=/app
-      - meson compile -C build || meson compile -C build
-      - meson install -C build
