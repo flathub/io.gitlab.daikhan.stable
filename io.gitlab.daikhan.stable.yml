@@ -3,8 +3,7 @@ command: daikhan
 runtime: org.gnome.Platform
 runtime-version: "47"
 sdk: org.gnome.Sdk
-sdk-extensions:
-  - org.freedesktop.Sdk.Extension.rust-stable
+
 add-extensions:
   org.freedesktop.Platform.ffmpeg-full:
     version: '24.08'
@@ -12,9 +11,6 @@ add-extensions:
     add-ld-path: "."
     no-autodownload: false
     autodelete: false
-
-build-options:
-  append-path: /usr/lib/sdk/rust-stable/bin
 
 finish-args:
   - --share=ipc
@@ -24,7 +20,6 @@ finish-args:
   - --socket=fallback-x11
   - --socket=pulseaudio
   - --own-name=org.mpris.MediaPlayer2.daikhan
-  - --env=GST_PLUGIN_SYSTEM_PATH=/app/lib/gstreamer-1.0
 
 cleanup:
   - /etc
@@ -72,38 +67,6 @@ modules:
     build-commands:
       - make PREFIX=/app
       - make PREFIX=/app install
-
-  - name: cargo-c
-    buildsystem: simple
-    sources:
-      - cargo-c-sources.json
-      - type: archive
-        url: https://crates.io/api/v1/crates/cargo-c/0.10.4+cargo-0.82.0/download
-        sha256: 516e8c3f59af4f1c2571abf539fe26384d4ee12b3bc91dc32c00a0c6efb1a8a2
-        dest-filename: cargo-c-0.10.4+cargo-0.82.0.tar.gz
-    build-options:
-      env:
-        CARGO_HOME: /run/build/cargo-c/cargo
-    build-commands:
-      - cargo install --offline --path . --root /app
-    cleanup:
-      - "*"
-
-  - gstreamer.yml
-
-  - name: gst-plugin-gtk4
-    buildsystem: simple
-    sources:
-      - gst-plugin-gtk4-sources.json
-      - type: archive
-        url: https://crates.io/api/v1/crates/gst-plugin-gtk4/0.13.1/download
-        sha256: 44b3fe6a92ebf2e62366d9f2d8633cc634187bb7c40fe4db05edfb809e928197
-        dest-filename: gst-plugin-gtk4-0.13.1.tar.gz
-    build-options:
-      env:
-        CARGO_HOME: /run/build/gst-plugin-gtk4/cargo
-    build-commands:
-      - cargo cinstall --frozen --release --all-features --library-type=cdylib --prefix=/app --libdir=/app/lib
 
   - name: daikhan
     builddir: true
