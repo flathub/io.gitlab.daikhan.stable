@@ -72,8 +72,8 @@ modules:
     builddir: true
     buildsystem: meson
     sources:
-      - type: git
-        url: https://gitlab.com/daikhan/daikhan.git
-        commit: 4bc33b4f230c50fadfe8503a4771594a56706352
+      - type: archive
+        url: https://gitlab.com/daikhan/daikhan/-/archive/0.1-alpha/daikhan-0.1-alpha.tar.bz2
+        sha256: f138d5c2cd7cd8255cd353665287a91c67c91ae8e213a112eeb8f30a03e7cd50
     config-opts:
       - -Dprofile=stable
