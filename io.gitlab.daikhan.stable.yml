@@ -53,8 +53,8 @@ modules:
     buildsystem: meson
     sources:
       - type: archive
-        url: https://gitlab.gnome.org/jwestman/blueprint-compiler/-/archive/v0.14.0/blueprint-compiler-v0.14.0.tar.bz2
-        sha256: 2be7682be51b6cbd64ab6775ee6d5806bf18c599d503056eaa4e58f1705be22b
+        url: https://gitlab.gnome.org/jwestman/blueprint-compiler/-/archive/v0.16.0/blueprint-compiler-v0.16.0.tar.bz2
+        sha256: 77a5d593f433c8ca70a05390532cd186c60944cfa6bcd39296c1c2597a7a50fc
     cleanup:
       - "*"
 
@@ -62,8 +62,8 @@ modules:
     buildsystem: simple
     sources:
       - type: archive
-        url: https://github.com/Cyan4973/xxHash/archive/refs/tags/v0.8.2.tar.gz
-        sha256: baee0c6afd4f03165de7a4e67988d16f0f2b257b51d0e3cb91909302a26a79c4
+        url: https://github.com/Cyan4973/xxHash/archive/refs/tags/v0.8.3.tar.gz
+        sha256: aae608dfe8213dfd05d909a57718ef82f30722c392344583d3f39050c7f29a80
     build-commands:
       - make PREFIX=/app
       - make PREFIX=/app install
