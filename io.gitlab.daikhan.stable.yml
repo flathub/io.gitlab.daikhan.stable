@@ -51,7 +51,7 @@ modules:
     buildsystem: meson
     sources:
       - type: archive
-        url: https://gitlab.com/daikhan/daikhan/-/archive/0.1-alpha5/daikhan-0.1-alpha5.tar.bz2
-        sha256: f91151de29499b9726f422266fd5fd2469cd9faaeae575de2767aedb803136a5
+        url: https://gitlab.com/daikhan/daikhan/-/archive/0.1-alpha6/daikhan-0.1-alpha6.tar.bz2
+        sha256: cecf19d3f2fa972cbd2b022332b414b4426880f3405d742f39499ed793261e38
     config-opts:
       - -Dprofile=stable
